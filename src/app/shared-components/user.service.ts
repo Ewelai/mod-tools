@@ -25,7 +25,7 @@ export class UserService {
     photos: [],
     provider: 'NONE',
     config: {
-      allowedLanguages: ['en'],
+      allowedLanguages: ['en', 'ru', 'it'],
       allowedClients: [60]
     }
   }

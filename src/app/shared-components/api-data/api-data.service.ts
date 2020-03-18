@@ -51,4 +51,9 @@ export class ApiDataService {
     this.diagnoseData.clientId = clientId;
   }
 
+  updateLanguage(language: string) {
+    console.log(language)
+    this.diagnoseData.language = language;
+  }
+
 }

@@ -6,6 +6,8 @@ import { faLanguage } from '@fortawesome/free-solid-svg-icons';
 import { Languages } from 'src/constants';
 import { UserService } from 'src/app/shared-components/user.service';
 
+import { ApiDataService } from '../../shared-components/api-data/api-data.service';
+
 @Component({
   selector: 'language-picker',
   templateUrl: './language-picker.component.html',
@@ -19,7 +21,10 @@ export class LanguagePickerComponent implements OnInit {
 
   languages = [];
 
-  constructor(private userService:UserService) {}
+  constructor(
+    private userService:UserService,
+    private apiDataService: ApiDataService
+  ) {}
 
   async ngOnInit() {
 
@@ -39,8 +44,9 @@ export class LanguagePickerComponent implements OnInit {
   /**
    * Fired when the user changes their language
    */
-  onLanguageChanged () {
+  onLanguageChanged (selectedLanguage: string) {
     this.languageChanged.emit(this.selectedLanguage);
+    this.apiDataService.updateLanguage(selectedLanguage);
   }
 
 }
