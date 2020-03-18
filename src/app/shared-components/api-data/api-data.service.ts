@@ -15,7 +15,7 @@ export class ApiDataService {
   private data = new Subject<any>();
 
   public diagnoseData: DiagnoseData = {
-    clientId: 60,
+    clientId: 59,
     language: 'en',
     text: 'I really love scrambled eggs.  They are the Shiiiiit.',
     contentType: 'SHORT_TEXT'
@@ -45,5 +45,10 @@ export class ApiDataService {
   getText(): Observable<any> {
     return this.inputText.asObservable();
   };
+
+  updateClientData(clientId: number) {
+    console.log(clientId)
+    this.diagnoseData.clientId = clientId;
+  }
 
 }

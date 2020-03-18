@@ -1,4 +1,5 @@
 import { Component, Input, EventEmitter, Output, OnInit } from '@angular/core';
+import { ApiDataService } from '../../shared-components/api-data/api-data.service';
 import { faServer } from '@fortawesome/free-solid-svg-icons';
 
 interface Client {
@@ -19,15 +20,18 @@ export class ClientPickerComponent implements OnInit {
 
   // TODO: This needs to be externally sourced
   clients:Client[] = [
-    { id: 0,  name: 'Community Sift' }
+    { id: 0,  name: 'Community Sift' },
+    { id: 60, name: 'Live' },
+    { id: 61, name: 'Sandbox' },
   ]
 
-  constructor() { }
+  constructor(private apiDataService: ApiDataService) { }
 
   ngOnInit() : void { }
 
-  onClientChanged () {
+  onClientChanged (selectedClient: number) {
     this.clientChanged.emit(this.selectedClient);
+    this.apiDataService.updateClientData(selectedClient);
   }
 
 }
