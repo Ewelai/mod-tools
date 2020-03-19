@@ -1,5 +1,5 @@
 <div class="selectLanguage">
-  <select class="select" name="language" (change)="onLanguageChanged($event.target.value)">
+  <select class="select" name="language" [(ngModel)]="selectedLanguage" (change)="onLanguageChanged($event.target.value)">
     <option class="select-menu" *ngFor="let language of languages" [value]="language.code">{{ language.name }}</option>
   </select>
 </div>

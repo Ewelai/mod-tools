@@ -29,4 +29,5 @@ interface UserPhoto {
 export interface UserPreferences {
   language:string;
   lastClientId?:number;
+  contentType:string;
 }

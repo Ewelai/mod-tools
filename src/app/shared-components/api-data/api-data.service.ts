@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, Subject } from 'rxjs';
-import { UserService } from 'src/app/shared-components/user.service';
+import { Observable, BehaviorSubject } from 'rxjs';
 import { DiagnoseData } from '../interfaces';
 import { environment } from '../../../environments/environment';
 
@@ -11,49 +10,57 @@ import { environment } from '../../../environments/environment';
 export class ApiDataService {
 
   private URL: string = environment.apiBaseUrl;
-  private inputText = new Subject<any>();
-  private data = new Subject<any>();
-
-  public diagnoseData: DiagnoseData = {
-    clientId: 59,
-    language: 'en',
-    text: 'I really love scrambled eggs.  They are the Shiiiiit.',
-    contentType: 'SHORT_TEXT'
-  };
+  private data = new BehaviorSubject<any>(null);
+  private language = new BehaviorSubject<string>(null);
+  private clientId = new BehaviorSubject<number>(null);
+  private contentType = new BehaviorSubject<string>(null);
 
   constructor(
-    private http: HttpClient,
-    private userService: UserService
+    private http: HttpClient
   ) { }
 
-  getData(): Observable<any> {
+  searchText(request: DiagnoseData) {
+    this.http.post(`${this.URL}/classify/text`, request).subscribe(response => {
+      console.log(response);
+    })
+  }
+
+  // clearData(text): void {
+  //   this.inputText.next(text);
+  // };
+
+  
+  getData() {
     return this.data.asObservable();
-  }
-
-  postData(text: string) {
-    this.inputText.next({ text });
-    this.http.post(`${this.URL}/classify/text`, this.diagnoseData).subscribe( res => {
-      console.log('res service post data', res)
-      this.data.next(res);
-    });
-  }
-
-  clearData(): void {
-    this.inputText.next();
   };
 
-  getText(): Observable<any> {
-    return this.inputText.asObservable();
-  };
+  getLanguage() {
+    return this.language.asObservable();
+  }
 
-  updateClientData(clientId: number) {
-    console.log(clientId)
-    this.diagnoseData.clientId = clientId;
+  getClientId() {
+    return this.clientId.asObservable();
+  }
+
+  getContentType() {
+    return this.contentType.asObservable();
+  }
+
+  dataForRefresh(data) {
+    this.data.next(data);
+  }
+
+  updateClientId(clientId: number) {
+    this.clientId.next(clientId);
+  }
+
+  updateContentType(contentType: string) {
+    this.contentType.next(contentType);
   }
 
   updateLanguage(language: string) {
     console.log(language)
-    this.diagnoseData.language = language;
+    this.language.next(language);
   }
 
 }

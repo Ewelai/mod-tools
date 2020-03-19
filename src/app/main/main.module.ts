@@ -12,6 +12,7 @@ import { UserFlyoutComponent } from './user-flyout/user-flyout.component';
 import { ClientPickerComponent } from './client-picker/client-picker.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ThemeModule, lightTheme, darkTheme } from '../theme';
+import { ContentTypePickerComponent } from './content-type-picker/content-type-picker.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { ThemeModule, lightTheme, darkTheme } from '../theme';
     LanguagePickerComponent,
     A11yFlyoutComponent,
     UserFlyoutComponent,
-    ClientPickerComponent
+    ClientPickerComponent,
+    ContentTypePickerComponent
   ],
   imports: [
     CommonModule,

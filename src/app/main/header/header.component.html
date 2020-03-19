@@ -3,6 +3,10 @@
   <main-logo></main-logo>
   
   <main-search></main-search>
+
+  <app-content-type-picker [selectedContentType]="this.UserService.preferences.contentType"
+                           (contentTypeChanged)="onUserChangedContentType($event)"
+  ></app-content-type-picker>
   
   <client-picker [selectedClient]="this.UserService.preferences.lastClientId"
                  (clientChanged)="onUserChangedClient($event)"

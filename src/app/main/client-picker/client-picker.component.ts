@@ -1,11 +1,7 @@
 import { Component, Input, EventEmitter, Output, OnInit } from '@angular/core';
+import { Clients } from 'src/constants';
 import { ApiDataService } from '../../shared-components/api-data/api-data.service';
 import { faServer } from '@fortawesome/free-solid-svg-icons';
-
-interface Client {
-  id:number;
-  name:string;
-}
 
 @Component({
   selector: 'client-picker',
@@ -13,17 +9,11 @@ interface Client {
   styleUrls: ['./client-picker.component.less']
 })
 export class ClientPickerComponent implements OnInit {
-  faServer= faServer;
+  faServer = faServer;
+  clients = Clients
 
-  @Input() selectedClient = 0;
+  @Input() selectedClient = this.clients[0].id;
   @Output() clientChanged = new EventEmitter<number>();
-
-  // TODO: This needs to be externally sourced
-  clients:Client[] = [
-    { id: 0,  name: 'Community Sift' },
-    { id: 60, name: 'Live' },
-    { id: 61, name: 'Sandbox' },
-  ]
 
   constructor(private apiDataService: ApiDataService) { }
 
@@ -31,7 +21,7 @@ export class ClientPickerComponent implements OnInit {
 
   onClientChanged (selectedClient: number) {
     this.clientChanged.emit(this.selectedClient);
-    this.apiDataService.updateClientData(selectedClient);
+    this.apiDataService.updateClientId(selectedClient);
   }
 
 }

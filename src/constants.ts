@@ -1,3 +1,18 @@
+export interface Language {
+  code:string;
+  name:string;
+  partial?:boolean;
+}
+
+export interface ContentType {
+  id: string;
+}
+
+export interface Client {
+  id:number;
+  name:string;
+}
+
 export class Topics {
   public static '0' = { name: 'General Risk', icon: 'numeric-${risk}-box' };
   public static '1' = { name: 'Bullying', icon: 'account-group' };
@@ -26,11 +41,6 @@ export class Topics {
   public static '31' = { name: 'Custom5', icon: 'number-5-circle-outline' };
 }
 
-export interface Language {
-  code:string;
-  name:string;
-  partial?:boolean;
-}
 
 export const Languages : Language[] = [
   { code: 'ar', name: 'Arabic', partial: false },
@@ -58,8 +68,26 @@ export const Languages : Language[] = [
   { code: 'zh', name: 'Chinese', partial: false },
 ]
 
+export const ContentTypes: ContentType[] = [
+  { id: 'SHORT_TEXT' },
+  { id: 'LONG_TEXT' },
+  { id: 'USERNAME' }
+]
+
+export const Clients: Client[] = [
+  { id: 60, name: 'Live' },
+  { id: 0,  name: 'Community Sift' },
+  { id: 61, name: 'Sandbox' },
+]
+
 // Set the default client
 export const DefaultClient = 0;
 
 // Set the default language to English
 export const DefaultLanguage = 'en';
+
+// Set the default content type
+export const DefaultContentType = 'SHORT_TEXT';
+
+// Set the default search text
+export const DefaultSearchText = 'I really love scrambled eggs. They are the Shiiiiit.';
