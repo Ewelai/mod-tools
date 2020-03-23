@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, BehaviorSubject } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 import { DiagnoseData } from '../interfaces';
 import { environment } from '../../../environments/environment';
 
@@ -11,6 +11,7 @@ export class ApiDataService {
 
   private URL: string = environment.apiBaseUrl;
   private data = new BehaviorSubject<any>(null);
+  private response = new BehaviorSubject<any>(null)
   private language = new BehaviorSubject<string>(null);
   private clientId = new BehaviorSubject<number>(null);
   private contentType = new BehaviorSubject<string>(null);
@@ -21,16 +22,11 @@ export class ApiDataService {
 
   searchText(request: DiagnoseData) {
     this.http.post(`${this.URL}/classify/text`, request).subscribe(response => {
-      console.log(response);
-    })
+      this.saveApiResponse(response);
+    });
   }
 
-  // clearData(text): void {
-  //   this.inputText.next(text);
-  // };
-
-  
-  getData() {
+  getDataRequest() {
     return this.data.asObservable();
   };
 
@@ -46,8 +42,16 @@ export class ApiDataService {
     return this.contentType.asObservable();
   }
 
-  dataForRefresh(data) {
+  getApiResponse() {
+    return this.response.asObservable();
+  }
+
+  dataRequestForRefresh(data) {
     this.data.next(data);
+  }
+
+  saveApiResponse(response) {
+    this.response.next(response);
   }
 
   updateClientId(clientId: number) {

@@ -2,12 +2,12 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { ApiDataService } from '../../shared-components/api-data/api-data.service';
 import { faSearch, faTimes, faEllipsisH } from '@fortawesome/free-solid-svg-icons';
 import { DiagnoseData } from '../../shared-components/interfaces';
-import { 
-  DefaultLanguage, 
-  DefaultClient, 
-  DefaultContentType, 
+import {
+  DefaultLanguage,
+  DefaultClient,
+  DefaultContentType,
   DefaultSearchText
-} from 'src/constants' 
+} from 'src/constants'
 
 @Component({
   selector: 'main-search',
@@ -59,7 +59,7 @@ export class SearchComponent implements OnInit {
     }
     console.log(data)
     this.apiDataService.searchText(data);
-    this.apiDataService.dataForRefresh(data);
+    this.apiDataService.dataRequestForRefresh(data);
   }
 
 }

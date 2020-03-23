@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-// import { RefreshComponent } from '../main/refresh/refresh.component';
 
 @Component({
   selector: 'app-generic-view',
@@ -7,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./generic-view.component.less']
 })
 export class GenericViewComponent implements OnInit {
+  response: any;
+
   constructor() { }
 
   ngOnInit(): void {

@@ -16,7 +16,7 @@ export class RefreshButtonComponent implements OnInit {
   }
 
   getData() {
-    this.apiDataService.getData().subscribe(data => {
+    this.apiDataService.getDataRequest().subscribe(data => {
       this.data = data;
     });
   }

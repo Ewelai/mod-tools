@@ -6,10 +6,11 @@ import { GenericViewComponent } from './generic-view.component';
 import { GenericViewRoutingModule } from './generic-view-routing.module';
 import { SharedComponentsModule } from '../shared-components/shared-components.module';
 import { ThemeModule, lightTheme, darkTheme } from '../theme';
+import { DiagnoseTextViewComponent } from './diagnose-text-view/diagnose-text-view.component';
 
 
 @NgModule({
-  declarations: [GenericViewComponent],
+  declarations: [GenericViewComponent, DiagnoseTextViewComponent],
   imports: [
     CommonModule,
     GenericViewRoutingModule,
