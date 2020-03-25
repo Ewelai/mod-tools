@@ -22,7 +22,7 @@ export class SearchComponent implements OnInit {
   clientId: number;
   language: string;
   contentType: string;
-  text: string; // 'I really love scrambled eggs. They are the Shiiiiit.'
+  text: string;
 
   constructor(private apiDataService: ApiDataService){}
 
@@ -57,7 +57,6 @@ export class SearchComponent implements OnInit {
       text: this.text ? this.text : DefaultSearchText,
       contentType: this.contentType ? this.contentType : DefaultContentType
     }
-    console.log(data)
     this.apiDataService.searchText(data);
     this.apiDataService.dataRequestForRefresh(data);
   }
