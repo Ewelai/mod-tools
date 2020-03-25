@@ -18,7 +18,6 @@ export class ContentTypePickerComponent implements OnInit {
   }
 
   onContentTypeChanged (selectedContentType: string) {
-    console.log(selectedContentType)
     this.contentTypeChanged.emit(this.selectedContentType);
     this.apiDataService.updateContentType(selectedContentType)
   }

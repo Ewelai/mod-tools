@@ -1,5 +1,5 @@
-<div class="selectClient">
+<div>
   <select class="select" name="client" [(ngModel)]="selectedClient" (change)="onClientChanged($event.target.value)">
-    <option class="select-menu" *ngFor="let client of clients" [value]="client.id">{{ client.name }}</option>
+    <option *ngFor="let client of clients" [value]="client.id">{{ client.name }}</option>
   </select>
 </div>

@@ -63,7 +63,6 @@ export class ApiDataService {
   }
 
   updateLanguage(language: string) {
-    console.log(language)
     this.language.next(language);
   }
 

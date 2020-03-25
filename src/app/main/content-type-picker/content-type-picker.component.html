@@ -1,14 +1,5 @@
-<!-- <div class="selectClient">
-  <select class="select" name="contentType" (change)="onClientChanged($event.target.value)">
-    <option class="select-menu" *ngFor="let client of clients" [value]="client.id">{{ client.name }}</option>
+<div class="mr-1">
+  <select class="select" name="client" [(ngModel)]="selectedContentType" (change)="onContentTypeChanged($event.target.value)">
+    <option *ngFor="let contentType of contentTypes" [value]="contentType.id">{{ contentType.id }}</option>
   </select>
-</div> -->
-
-<div class="mar-right">
-  <select name="client"
-    [(ngModel)]="selectedContentType"
-    (change)="onContentTypeChanged($event.target.value)"
-  >
-    <option *ngFor="let contentType of contentTypes"
-            [value]="contentType.id">{{ contentType.id }}</option>
-  </select>
+</div>

@@ -19,7 +19,6 @@ export class SideTopicsComponent implements OnInit {
   getData() {
     this.apiDataService.getApiResponse().subscribe(data => {
       this.response = data;
-      console.log('responeSideTopics', this.response)
       if(data !== null){
         this.response = data;
         this.formatTopics(data.topics)

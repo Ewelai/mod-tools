@@ -20,18 +20,21 @@ export class DiagnoseTextViewComponent implements OnInit {
     this.getData();
   }
 
-  mouseEnter(item) {
-    this.mouseValue = item;
+  mouseEnter(index, item) {
+    if(item.solution === '{{breakfast_food}}') {
+      this.mouseValue = index;
+    }
   }
 
   mouseLeave(item) {
-    this.mouseValue = '';
+    if(item.solution === '{{breakfast_food}}') {
+      this.mouseValue = '';
+    }
   }
 
   getData() {
     this.apiDataService.getApiResponse().subscribe(data => {
       this.response = data;
-      console.log('responeDeagnoseText', this.response)
       if(data !== null){
         this.response = data.extended;
         this.textOutputOriginal(this.response);
