@@ -1,26 +1,26 @@
-<div class="container">
-    <div class="items-container">
-      <div class="items" *ngFor="let item of response; let i = index" >
-        <span>{{ item?.original }}</span>
-        <span (mouseenter)="mouseEnter(i)" (mouseleave)="mouseLeave(i)"  *ngIf="item?.text !== ''">
-            <ng-container *ngIf="item.tokens[item.tokens.length - 1].text === '{{strong_bully_word}}'">
-                <span [ngStyle]="{'background-color' : 'red'}">{{ item.solution }}</span>
-            </ng-container>
+<div class="container" *ngIf="response">
+  <div class="items-container">
+    <div class="items" *ngFor="let item of response; let i = index">
+      <span>{{ item?.original }}</span>
+      <div (mouseenter)="mouseEnter(i)" (mouseleave)="mouseLeave(i)" *ngIf="item?.text !== ''">
+        <ng-container *ngIf="item.tokens[item.tokens.length - 1].text === '{{strong_bully_word}}'">
+          <span [ngStyle]="{'background-color' : 'red'}">{{ item.solution }}</span>
+        </ng-container>
 
-            <ng-container *ngIf="item.tokens[item.tokens.length - 1].text !== '{{strong_bully_word}}'">
-                <span [ngStyle]="{'background-color' : 'green'}" >{{ item.solution }}</span>
-            </ng-container>
-        </span>
-  
-        <div class="items-hover" [ngClass]="{'isShow': mouseValue === i}">
-          <div class="d-flex p-1 item-hover" *ngFor="let token of item?.tokens">
-            <div class="number">1</div>
-            <div class="text">{{ token.text }}</div>
-            <div class="text-language">{{ token.language }}</div>
-            <div class="d-flex background">
-              <span *ngFor="let topic of token?.topics | keyvalue">{{ topic.value }}</span>
-            </div>
+        <ng-container *ngIf="item.tokens[item.tokens.length - 1].text !== '{{strong_bully_word}}'">
+          <span [ngStyle]="{'background-color' : 'green'}">{{ item.solution }}</span>
+        </ng-container>
+      </div>
+
+      <div class="items-hover" [ngClass]="{'isShow': mouseValue === i}">
+        <div class="d-flex p-1 item-hover" *ngFor="let token of item?.tokens">
+          <div class="number">1</div>
+          <div class="text">{{ token.text }}</div>
+          <div class="text-language">{{ token.language }}</div>
+          <div class="d-flex background">
+            <span *ngFor="let topic of token?.topics | keyvalue">{{ topic.value }}</span>
           </div>
         </div>
+      </div>
     </div>
-</div>
+  </div>

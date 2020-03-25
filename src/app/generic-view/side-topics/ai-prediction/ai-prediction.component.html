@@ -1,0 +1,18 @@
+<div class="prediction" *ngIf="response">
+    <div class="text">AI Prediction</div>
+    <div class="d-flex mb-2 align-center">
+        <div class="prediction-text">en</div>
+        <input type="range" min="1" max="100" step="1" [value]="response.predictions.lang_en * 100">
+        <div class="prediction-text">{{ (response.predictions.lang_en * 100).toFixed(0) }}%</div>
+    </div>
+    <div class="d-flex mb-2 align-center">
+        <div class="prediction-text">fr</div>
+        <input type="range" min="1" max="100" step="1" [value]="response.predictions.lang_fr * 100">
+        <div class="prediction-text">{{ (response.predictions.lang_fr * 100).toFixed(0) }}%</div>
+    </div>
+    <div class="d-flex align-center">
+        <div class="prediction-text">fraud</div>
+        <input type="range" min="1" max="100" step="1" [value]="response.predictions.topic_fraud * 100">
+        <div class="prediction-text">{{ (response.predictions.topic_fraud * 100).toFixed(0) }}%</div>
+    </div>
+</div>

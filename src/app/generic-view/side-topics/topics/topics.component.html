@@ -1,0 +1,23 @@
+<div class="d-flex topics align-top">
+    <div class="topic">
+        <div class="text">Topics</div>
+        <div 
+            class="topic-box d-flex align-center" 
+            [ngClass]="(response.topics[topic] >= 5) ? 'orange' : 'white' " 
+            *ngFor="let topic of topicsResponse"> 
+                <div class="topic-box-text">{{ topicsConstant[topic].name }}</div>
+                <div class="box-number">{{ response.topics[topic] }}</div>
+        </div>
+    </div>
+    <div class="policy">
+        <div class="text">Policy Guides</div>
+        <div class="topic-box d-flex align-center p-2" [ngClass]="(response.topics[5] >= 5 || response.topics[0] >= 6) ? 'red' : 'green' ">
+            <img class="img-width" [src]="response.topics[0] >= 6 || response.topics[5] >= 5 ? './assets/images/cancel.svg' : './assets/images/tick.svg'"/>
+            <div class="topic-box-text">Gobal Chat</div>
+        </div>
+        <div class="topic-box d-flex align-center p-2" [ngClass]="response.topics[5] >= 6 ? 'red': 'green'">
+            <img class="img-width" [src]="response.topics[5] >= 6 ? './assets/image/dislike.svg' : './assets/images/tick.svg'"/>
+            <div class="topic-box-text">Private Chat</div>
+        </div>
+    </div>
+</div>

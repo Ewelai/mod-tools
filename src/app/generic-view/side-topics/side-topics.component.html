@@ -1,0 +1,19 @@
+<div class="container" *ngIf="response">
+  <div class="initial-text">{{ response.text }}</div>
+
+  <div class="line"></div>
+
+  <app-topics [response]="response" [topicsResponse]="topicsResponse"></app-topics>
+
+  <div class="line"></div>
+
+  <app-ai-prediction [response]="response"></app-ai-prediction>
+
+  <div class="line"></div>
+
+  <div class="buttons d-flex justify-content-center w-100">
+    <button>Escalate</button>
+    <button class="blue">Gerkin Test</button>
+    <button class="green">Create Rule</button>
+  </div>
+</div>
