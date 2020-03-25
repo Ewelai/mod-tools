@@ -15,29 +15,27 @@
         </div>
         <div class="mr-1">
           <client-picker class="m-0" 
-            [selectedClient]="this.UserService.preferences.lastClientId"
+            [selectedClient]="this.userService.preferences.lastClientId"
             (clientChanged)="onUserChangedClient($event)">
           </client-picker>
         </div>
         <div class="mr-1">
           <language-picker 
-            [selectedLanguage]="this.UserService.preferences.language"
+            [selectedLanguage]="this.userService.preferences.language"
             (languageChanged)="onUserChangedLanguage($event)">
           </language-picker>
         </div>
         <div class="mr-1">
           <app-content-type-picker 
-            [selectedContentType]="this.UserService.preferences.contentType"
+            [selectedContentType]="this.userService.preferences.contentType"
             (contentTypeChanged)="onUserChangedContentType($event)">
           </app-content-type-picker>
         </div>
 
-        <!-- Moove deeper analysis to services -->
-        <app-deeper-analysis 
+        <app-deeper-analysis-toggler 
           [isChecked]="isChecked"
           (changeToggle)="onChangeAnalysisToggle($event)">
-        </app-deeper-analysis>
-        <!-- ---- -->
+        </app-deeper-analysis-toggler>
       </div>
     </div>
 

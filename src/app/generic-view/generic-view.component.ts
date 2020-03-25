@@ -16,20 +16,20 @@ export class GenericViewComponent implements OnInit {
   user: User
 
   constructor(
-    public UserService:UserService,
+    public userService: UserService,
     public apiDataService: ApiDataService
   ) { }
 
   async ngOnInit() {
-    this.user = await this.UserService.me();
+    this.user = await this.userService.me();
   }
 
   onUserChangedClient (newClient:number) {
     // TODO #codereview This smells bad.
     // Oughtn't I be able to write this as this.UserService.preferences.language = newLanguage?
-    const prefs = this.UserService.preferences;
+    const prefs = this.userService.preferences;
     prefs.lastClientId = newClient;
-    this.UserService.preferences = prefs;
+    this.userService.preferences = prefs;
 
     console.log('changed Client', prefs)
   }
@@ -37,23 +37,26 @@ export class GenericViewComponent implements OnInit {
   onUserChangedLanguage (newLanguage:string) {
     // TODO #codereview This smells bad.
     // Oughtn't I be able to write this as this.UserService.preferences.language = newLanguage?
-    const prefs = this.UserService.preferences;
+    const prefs = this.userService.preferences;
     prefs.language = newLanguage;
-    this.UserService.preferences = prefs;
+    this.userService.preferences = prefs;
 
     console.log('changed Language', prefs)
   }
 
   onUserChangedContentType (newContentType: string) {
-    const prefs = this.UserService.preferences;
+    const prefs = this.userService.preferences;
     prefs.contentType = newContentType;
-    this.UserService.preferences = prefs;
+    this.userService.preferences = prefs;
 
     console.log('changed CNT', prefs)
   }
 
-  onChangeAnalysisToggle(event) {
-    console.log('event generic-view', event)
+  onChangeAnalysisToggle(toggle) {
+    this.isChecked = toggle;
+    this.apiDataService.getTogglerState().subscribe(state => {
+      console.log('get state in component subject', state)
+    })
   }
 
 }

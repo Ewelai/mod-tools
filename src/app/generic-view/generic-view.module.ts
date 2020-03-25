@@ -13,7 +13,7 @@ import { DiagnoseTextViewComponent } from './diagnose-text-view/diagnose-text-vi
 import { SideTopicsComponent } from './side-topics/side-topics.component';
 import { AiPredictionComponent } from './side-topics/ai-prediction/ai-prediction.component';
 import { TopicsComponent } from './side-topics/topics/topics.component';
-import { DeeperAnalysisComponent } from './deeper-analysis/deeper-analysis.component';
+import { DeeperAnalysisTogglerComponent } from './deeper-analysis-toggler/deeper-analysis-toggler.component';
 
 
 @NgModule({
@@ -23,7 +23,7 @@ import { DeeperAnalysisComponent } from './deeper-analysis/deeper-analysis.compo
     SideTopicsComponent,
     AiPredictionComponent,
     TopicsComponent,
-    DeeperAnalysisComponent
+    DeeperAnalysisTogglerComponent
   ],
   imports: [
     MainModule,
