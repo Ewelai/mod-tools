@@ -36,7 +36,10 @@ import { ContentTypePickerComponent } from './content-type-picker/content-type-p
     }),
   ],
   exports: [
-    HeaderComponent
+    HeaderComponent,
+    LanguagePickerComponent,
+    ClientPickerComponent,
+    ContentTypePickerComponent
   ]
 })
 export class MainModule { }

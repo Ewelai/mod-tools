@@ -28,7 +28,8 @@ import { RefreshButtonComponent } from './refresh-button/refresh-button.componen
     }),
   ],
   exports: [
-    SubNavigationComponent
+    SubNavigationComponent,
+    RefreshButtonComponent
   ]
 })
 export class SubnavModule { }

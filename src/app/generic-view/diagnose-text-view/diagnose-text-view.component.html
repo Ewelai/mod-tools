@@ -1,9 +1,9 @@
 <div class="container" *ngIf="response">
-  <div class="items-container">
+  <div class="items-container flex-wrap">
     <div class="items" *ngFor="let item of response; let i = index">
       <span class="ml-1" *ngIf="item.text !== ''">{{ item.original }}
         <ng-container *ngIf="response[i + 1]?.text === ''">
-          <p class="d-flex align-items ml-1 align-self-stretch " *ngFor="let word of response | slice: i + 1 : i + 2">{{ word.original }}</p>
+          <p class="d-flex align-items-center ml-1 align-self-stretch " *ngFor="let word of response | slice: i + 1 : i + 2">{{ word.original }}</p>
         </ng-container>
       </span>
       <div (mouseover)="mouseEnter(i, item)" (mouseout)="mouseLeave(item)" *ngIf="item.text !== ''">
@@ -17,7 +17,7 @@
       </div>
 
       <div class="items-hover" [ngClass]="{'isShow': mouseValue === i}">
-        <div class="d-flex align-items p-1 item-hover" *ngFor="let token of item?.tokens">
+        <div class="d-flex align-items-center p-1 item-hover" *ngFor="let token of item?.tokens">
           <div class="number">1</div>
           <div class="text">{{ token.text }}</div>
           <div class="text-language">{{ token.language }}</div>

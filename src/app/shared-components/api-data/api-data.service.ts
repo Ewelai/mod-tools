@@ -22,6 +22,7 @@ export class ApiDataService {
 
   searchText(request: DiagnoseData) {
     this.http.post(`${this.URL}/classify/text`, request).subscribe(response => {
+      console.log(response)
       this.saveApiResponse(response);
     });
   }

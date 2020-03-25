@@ -54,9 +54,10 @@ export class SearchComponent implements OnInit {
     const data: DiagnoseData = {
       clientId: this.clientId ? this.clientId : DefaultClient,
       language: this.language ? this.language : DefaultLanguage,
-      text: this.text ? this.text : DefaultSearchText,
+      text: text ? text : DefaultSearchText,
       contentType: this.contentType ? this.contentType : DefaultContentType
     }
+
     this.apiDataService.searchText(data);
     this.apiDataService.dataRequestForRefresh(data);
   }

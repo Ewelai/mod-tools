@@ -3,18 +3,6 @@
   <main-logo></main-logo>
   
   <main-search></main-search>
-
-  <app-content-type-picker [selectedContentType]="this.UserService.preferences.contentType"
-                           (contentTypeChanged)="onUserChangedContentType($event)"
-  ></app-content-type-picker>
-  
-  <client-picker [selectedClient]="this.UserService.preferences.lastClientId"
-                 (clientChanged)="onUserChangedClient($event)"
-  ></client-picker>
-
-  <language-picker [selectedLanguage]="this.UserService.preferences.language"
-                   (languageChanged)="onUserChangedLanguage($event)"
-  ></language-picker>
   
   <a11y-flyout></a11y-flyout>
   

@@ -1,22 +1,57 @@
 <section id="generic-view">
 
   <header>
+    <div class="d-flex align-items-center">
+      <div class="d-flex flex-column flex-grow-1">
+        <h1>Diagnose</h1>
+        <nav class="breadcrumb mb-1">
+          <xng-breadcrumb></xng-breadcrumb>
+        </nav>
+      </div>
 
-    <h3>Generic View</h3>
+      <div class="d-flex align-items-center">
+        <div class="mr-1">
+          <app-refresh-button></app-refresh-button>
+        </div>
+        <div class="mr-1">
+          <client-picker class="m-0" 
+            [selectedClient]="this.UserService.preferences.lastClientId"
+            (clientChanged)="onUserChangedClient($event)">
+          </client-picker>
+        </div>
+        <div class="mr-1">
+          <language-picker 
+            [selectedLanguage]="this.UserService.preferences.language"
+            (languageChanged)="onUserChangedLanguage($event)">
+          </language-picker>
+        </div>
+        <div class="mr-1">
+          <app-content-type-picker 
+            [selectedContentType]="this.UserService.preferences.contentType"
+            (contentTypeChanged)="onUserChangedContentType($event)">
+          </app-content-type-picker>
+        </div>
 
-    <nav class="breadcrumb">
-      <xng-breadcrumb></xng-breadcrumb>
-    </nav>
+        <!-- Moove deeper analysis to services -->
+        <app-deeper-analysis 
+          [isChecked]="isChecked"
+          (changeToggle)="onChangeAnalysisToggle($event)">
+        </app-deeper-analysis>
+        <!-- ---- -->
+      </div>
+    </div>
 
   </header>
 
-  <div class="container" >
-    <div class="left-side">
+  <div class="d-flex mt-2 flex-wrap">
+    <div class="mr-5 mb-2 flex-grow-1">
       <app-diagnose-text-view></app-diagnose-text-view>
     </div>
-    <div class="right-side">
+    <div class="justify-content-end mb-2">
       <app-side-topics></app-side-topics>
     </div>
   </div>
+
+
 
 </section>

@@ -23,8 +23,8 @@ export class RefreshButtonComponent implements OnInit {
 
   refreshData() {
     if(this.data) {
+      console.log('refresh', this.data)
       this.apiDataService.searchText(this.data);
     }
   }
-
 }
