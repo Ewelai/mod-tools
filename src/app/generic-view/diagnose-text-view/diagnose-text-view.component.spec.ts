@@ -1,4 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 import { DiagnoseTextViewComponent } from './diagnose-text-view.component';
 
@@ -8,7 +10,9 @@ describe('DiagnoseTextViewComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DiagnoseTextViewComponent ]
+      declarations: [ DiagnoseTextViewComponent ],
+      imports: [ HttpClientModule ],
+      schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
     })
     .compileComponents();
   }));
