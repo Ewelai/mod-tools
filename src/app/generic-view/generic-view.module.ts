@@ -14,6 +14,7 @@ import { SideTopicsComponent } from './side-topics/side-topics.component';
 import { AiPredictionComponent } from './side-topics/ai-prediction/ai-prediction.component';
 import { TopicsComponent } from './side-topics/topics/topics.component';
 import { DeeperAnalysisTogglerComponent } from './deeper-analysis-toggler/deeper-analysis-toggler.component';
+import { DeeperAnalysisContentComponent } from './deeper-analysis-content/deeper-analysis-content.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { DeeperAnalysisTogglerComponent } from './deeper-analysis-toggler/deeper
     SideTopicsComponent,
     AiPredictionComponent,
     TopicsComponent,
-    DeeperAnalysisTogglerComponent
+    DeeperAnalysisTogglerComponent,
+    DeeperAnalysisContentComponent
   ],
   imports: [
     MainModule,

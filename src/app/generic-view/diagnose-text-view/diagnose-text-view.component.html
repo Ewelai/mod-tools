@@ -1,6 +1,6 @@
 <div class="container" *ngIf="response">
   <div class="items-container flex-wrap">
-    <div class="items" *ngFor="let item of response; let i = index">
+    <div class="items" *ngFor="let item of response.extended; let i = index">
       <span class="ml-1" *ngIf="item.text !== ''">{{ item.original }}
         <ng-container *ngIf="response[i + 1]?.text === ''">
           <p class="d-flex align-items-center ml-1 align-self-stretch " *ngFor="let word of response | slice: i + 1 : i + 2">{{ word.original }}</p>
@@ -11,8 +11,12 @@
           <span class="ml-1" [ngStyle]="{'background-color' : '#FE7703'}">{{ item.solution }}</span>
         </ng-container>
 
-        <ng-container *ngIf="item.tokens[item.tokens.length - 1].text !== '{{strong_bully_word}}'">
+        <ng-container *ngIf="checkRightSolution(item.tokens[item.tokens.length - 1].text)">
           <span class="ml-1" [ngStyle]="{'background-color' : '#7EBF1D'}">{{ item.solution }}</span>
+        </ng-container>
+
+        <ng-container *ngIf="checkNeutralSolutions(item.tokens[item.tokens.length - 1].text)"> <!--item.tokens[item.tokens.length - 1].text === '{{stem:love}}'-->
+          <span class="ml-1" [ngStyle]="{'background-color' : '#B0B7A1'}">{{ item.solution }}</span>
         </ng-container>
       </div>
 

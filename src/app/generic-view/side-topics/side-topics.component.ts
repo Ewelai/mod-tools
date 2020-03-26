@@ -28,6 +28,7 @@ export class SideTopicsComponent implements OnInit {
 
   formatTopics(topics) {
     this.topicsResponse = Object.keys(topics);
+    this.apiDataService.updateTopics(this.topicsResponse)
   }
 
 }

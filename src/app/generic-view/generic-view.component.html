@@ -32,10 +32,7 @@
           </app-content-type-picker>
         </div>
 
-        <app-deeper-analysis-toggler 
-          [isChecked]="isChecked"
-          (changeToggle)="onChangeAnalysisToggle($event)">
-        </app-deeper-analysis-toggler>
+        <app-deeper-analysis-toggler></app-deeper-analysis-toggler>
       </div>
     </div>
 
@@ -43,7 +40,8 @@
 
   <div class="d-flex mt-2 flex-wrap">
     <div class="mr-5 mb-2 flex-grow-1">
-      <app-diagnose-text-view></app-diagnose-text-view>
+      <app-diagnose-text-view [response]="response"></app-diagnose-text-view>
+      <app-deeper-analysis-content [response]="response"></app-deeper-analysis-content>
     </div>
     <div class="justify-content-end mb-2">
       <app-side-topics></app-side-topics>

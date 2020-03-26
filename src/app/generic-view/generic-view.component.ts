@@ -12,8 +12,8 @@ export class GenericViewComponent implements OnInit {
   contentType: string;
   clientId: number;
   text: string;
-  isChecked = false;
   user: User
+  response: any;
 
   constructor(
     public userService: UserService,
@@ -22,6 +22,7 @@ export class GenericViewComponent implements OnInit {
 
   async ngOnInit() {
     this.user = await this.userService.me();
+    this.getData();
   }
 
   onUserChangedClient (newClient:number) {
@@ -52,10 +53,11 @@ export class GenericViewComponent implements OnInit {
     console.log('changed CNT', prefs)
   }
 
-  onChangeAnalysisToggle(toggle) {
-    this.isChecked = toggle;
-    this.apiDataService.getTogglerState().subscribe(state => {
-      console.log('get state in component subject', state)
+  getData() {
+    this.apiDataService.getApiResponse().subscribe(data => {
+      if(data !== null){
+        this.response = data;
+      }
     })
   }
 

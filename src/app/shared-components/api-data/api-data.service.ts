@@ -11,7 +11,8 @@ export class ApiDataService {
 
   private URL: string = environment.apiBaseUrl;
   private data = new BehaviorSubject<any>(null);
-  private response = new BehaviorSubject<any>(null)
+  private response = new BehaviorSubject<any>(null);
+  private topics = new BehaviorSubject<any>(null);
   private language = new BehaviorSubject<string>(null);
   private clientId = new BehaviorSubject<number>(null);
   private contentType = new BehaviorSubject<string>(null);
@@ -26,6 +27,15 @@ export class ApiDataService {
       console.log(response)
       this.saveApiResponse(response);
     });
+  }
+
+  // Topics
+  getTopics() {
+    return this.topics.asObservable();
+  }
+
+  updateTopics(topics) {
+    this.topics.next(topics);
   }
 
   // Toggler for deeper analysis

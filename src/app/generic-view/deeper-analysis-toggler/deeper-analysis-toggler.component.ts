@@ -7,19 +7,15 @@ import { ApiDataService } from 'src/app/shared-components/api-data/api-data.serv
   styleUrls: ['./deeper-analysis-toggler.component.less']
 })
 export class DeeperAnalysisTogglerComponent implements OnInit {
-
-  @Input() isChecked = true;
-  @Output() changeToggle = new EventEmitter<boolean>();
+  isChecked = false;
 
   constructor(public apiDataSevice: ApiDataService) { }
 
   ngOnInit(): void {
   }
 
-  onChangeToggle() {
-    console.log('deeper analysis', this.isChecked)
-    this.changeToggle.emit(this.isChecked);
+  toggle() {
+    this.isChecked = !this.isChecked;
     this.apiDataSevice.updateTogglerState(this.isChecked);
   }
-
 }

@@ -1,0 +1,28 @@
+<div class="container" *ngIf="response && isShowContent">
+  <div *ngFor="let item of response.extended; let i = index">
+    <div class="mt-5" *ngIf="item.tokens[item.tokens.length - 1].text === '{{strong_bully_word}}'">
+      <div>
+        <p class="text-header mb-2">Spelling Mistakes</p>
+        <div class="d-flex flex-grow-1 mb-2 container background">
+          <span class="text ml-2 align-self-center">{{item.original}}</span>
+        </div>
+      </div>
+
+      <div>
+        <p class="text-header mb-2">What caused which tag</p>
+        <div class="d-flex flex-grow-1 container background">
+          <div class="d-flex align-self-center" *ngFor="let topic of topics">
+            <div class="topic ml-2" *ngIf="topicsConstant[topic]?.name === 'Vulgar'">
+              <div class="topic-box d-flex align-items-center"
+                [ngClass]="(response?.topics[topic] >= 5) ? 'orange' : 'white'">
+                <div class="topic-box-text">{{ topicsConstant[topic]?.name }}</div>
+                <div class="box-number">{{ response.topics[topic] }}</div>
+              </div>
+            </div>
+          </div>
+          <span class="d-flex text ml-2 align-self-center">{{item.solution}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

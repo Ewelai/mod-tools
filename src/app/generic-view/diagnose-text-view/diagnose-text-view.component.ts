@@ -1,7 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ApiDataService } from 'src/app/shared-components/api-data/api-data.service';
-import { ViewFlags } from '@angular/compiler/src/core';
-import { compileNgModule } from '@angular/compiler';
 
 @Component({
   selector: 'app-diagnose-text-view',
@@ -11,13 +9,12 @@ import { compileNgModule } from '@angular/compiler';
 export class DiagnoseTextViewComponent implements OnInit {
   isShow: any;
   mouseValue: any;
-  response: any;
-  extendedOriginal: any[] = [];
+  @Input() response;
+  test: string;
 
   constructor(public apiDataService: ApiDataService) { }
 
   ngOnInit(): void {
-    this.getData();
   }
 
   mouseEnter(index, item) {
@@ -32,19 +29,17 @@ export class DiagnoseTextViewComponent implements OnInit {
     }
   }
 
-  getData() {
-    this.apiDataService.getApiResponse().subscribe(data => {
-      this.response = data;
-      if(data !== null){
-        this.response = data.extended;
-        this.textOutputOriginal(this.response);
-      }
-    })
+  checkRightSolution(condition) {
+    if((condition !== '{{strong_bully_word}}') && (condition !== '{{stem:love}}') && (condition !== '{{breakfast_food}}')) {
+      return true;
+    }
   }
 
-  textOutputOriginal(array) {
-    array.forEach(item => {
-      this.extendedOriginal.push(item.original);
-    });
+  checkNeutralSolutions(condition) {
+    if((condition === '{{stem:love}}') || (condition === '{{breakfast_food}}')) {
+      return true;
+    }
   }
+
+
 }
