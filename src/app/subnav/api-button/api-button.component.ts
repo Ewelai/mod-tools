@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'api-button',
+  selector: 'app-api-button',
   templateUrl: './api-button.component.html',
   styleUrls: ['./api-button.component.less']
 })

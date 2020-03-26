@@ -19,8 +19,8 @@ describe('LanguagePickerComponent', () => {
     })
     .compileComponents();
 
-    httpClient = TestBed.get(HttpClient);
-    httpTestingController = TestBed.get(HttpTestingController);
+    httpClient = TestBed.inject(HttpClient);
+    httpTestingController = TestBed.inject(HttpTestingController);
   }));
 
   beforeEach(() => {

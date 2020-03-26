@@ -3,7 +3,7 @@ import { faUniversalAccess } from '@fortawesome/free-solid-svg-icons';
 import { ThemeService } from '../../theme';
 
 @Component({
-  selector: 'a11y-flyout',
+  selector: 'app-a11y-flyout',
   templateUrl: './a11y-flyout.component.html',
   styleUrls: ['./a11y-flyout.component.less']
 })

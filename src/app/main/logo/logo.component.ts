@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ThemeService } from '../../theme';
 
 @Component({
-  selector: 'main-logo',
+  selector: 'app-main-logo',
   templateUrl: './logo.component.html',
   styleUrls: ['./logo.component.less']
 })

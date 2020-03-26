@@ -23,8 +23,8 @@ export const lightTheme: Theme = {
     '--page-header-bg': 'white',
     '--text-color': '#0c0c0c',
 
-    '--sub-navigation-bg': '#292C35',
-    '--sub-navigation-txt': '#f4f4f4',
+    '--app-sub-navigation-bg': '#292C35',
+    '--app-sub-navigation-txt': '#f4f4f4',
 
     // Accents
     '--accent-brand': '#3FB8AF',

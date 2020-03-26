@@ -3,7 +3,7 @@ import { has } from 'lodash';
 import { faHome, faBook, faUserCheck, faFilter, faFlag, faChartLine } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
-  selector: 'sub-navigation',
+  selector: 'app-sub-navigation',
   templateUrl: './sub-navigation.component.html',
   styleUrls: ['./sub-navigation.component.less']
 })

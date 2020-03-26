@@ -5,7 +5,7 @@ import { takeUntil } from 'rxjs/operators';
 import { Theme } from './symbols';
 
 @Directive({
-  selector: '[theme]'
+  selector: '[appTheme]'
 })
 export class ThemeDirective implements OnInit, OnDestroy {
 
@@ -35,7 +35,9 @@ export class ThemeDirective implements OnInit, OnDestroy {
   updateTheme(theme: Theme) {
     // project properties onto the element
     for (const key in theme.properties) {
-      this._elementRef.nativeElement.style.setProperty(key, theme.properties[key]);
+      if(theme.properties.hasOwnProperty(key)) {
+        this._elementRef.nativeElement.style.setProperty(key, theme.properties[key]);
+      }
     }
 
     // remove old theme

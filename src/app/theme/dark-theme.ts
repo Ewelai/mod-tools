@@ -23,8 +23,8 @@ export const darkTheme: Theme = {
     '--page-header-bg': '#111312',
     '--text-color': '#f4f4f4',
 
-    '--sub-navigation-bg': '#0C0C0C',
-    '--sub-navigation-txt': '#f4f4f4',
+    '--app-sub-navigation-bg': '#0C0C0C',
+    '--app-sub-navigation-txt': '#f4f4f4',
 
     // Accents
     '--accent-brand': '#3FB8AF',

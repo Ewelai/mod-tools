@@ -4,7 +4,7 @@ import { ApiDataService } from '../../shared-components/api-data/api-data.servic
 import { faServer } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
-  selector: 'client-picker',
+  selector: 'app-client-picker',
   templateUrl: './client-picker.component.html',
   styleUrls: ['./client-picker.component.less']
 })

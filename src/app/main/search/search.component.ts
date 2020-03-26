@@ -10,7 +10,7 @@ import {
 } from 'src/constants'
 
 @Component({
-  selector: 'main-search',
+  selector: 'app-main-search',
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.less']
 })

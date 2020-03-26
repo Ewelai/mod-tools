@@ -14,16 +14,16 @@
           <app-refresh-button></app-refresh-button>
         </div>
         <div class="mr-1">
-          <client-picker class="m-0" 
+          <app-client-picker class="m-0" 
             [selectedClient]="this.userService.preferences.lastClientId"
             (clientChanged)="onUserChangedClient($event)">
-          </client-picker>
+          </app-client-picker>
         </div>
         <div class="mr-1">
-          <language-picker 
+          <app-language-picker 
             [selectedLanguage]="this.userService.preferences.language"
             (languageChanged)="onUserChangedLanguage($event)">
-          </language-picker>
+          </app-language-picker>
         </div>
         <div class="mr-1">
           <app-content-type-picker 

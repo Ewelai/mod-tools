@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'subnav-help',
+  selector: 'app-subnav-help',
   templateUrl: './help.component.html',
   styleUrls: ['./help.component.less']
 })

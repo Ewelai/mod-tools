@@ -8,7 +8,7 @@ export interface IOptionButton {
 }
 
 @Component({
-  selector: 'option-button-group',
+  selector: 'app-option-button-group',
   templateUrl: './option-button-group.component.html',
   styleUrls: ['./option-button-group.component.less']
 })

@@ -9,7 +9,7 @@ import { UserService } from 'src/app/shared-components/user.service';
 import { ApiDataService } from '../../shared-components/api-data/api-data.service';
 
 @Component({
-  selector: 'language-picker',
+  selector: 'app-language-picker',
   templateUrl: './language-picker.component.html',
   styleUrls: ['./language-picker.component.less']
 })
