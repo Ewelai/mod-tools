@@ -58,7 +58,6 @@ export class GenericViewComponent implements OnInit {
     this.apiDataService.getApiResponse().subscribe(data => {
       if(data !== null){
         this.response = data;
-        console.log(this.response,'ejfregjn');
       }
     })
   }
