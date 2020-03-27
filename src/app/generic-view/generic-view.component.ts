@@ -31,8 +31,6 @@ export class GenericViewComponent implements OnInit {
     const prefs = this.userService.preferences;
     prefs.lastClientId = newClient;
     this.userService.preferences = prefs;
-
-    console.log('changed Client', prefs)
   }
 
   onUserChangedLanguage (newLanguage:string) {
@@ -41,16 +39,12 @@ export class GenericViewComponent implements OnInit {
     const prefs = this.userService.preferences;
     prefs.language = newLanguage;
     this.userService.preferences = prefs;
-
-    console.log('changed Language', prefs)
   }
 
   onUserChangedContentType (newContentType: string) {
     const prefs = this.userService.preferences;
     prefs.contentType = newContentType;
     this.userService.preferences = prefs;
-
-    console.log('changed CNT', prefs)
   }
 
   getData() {

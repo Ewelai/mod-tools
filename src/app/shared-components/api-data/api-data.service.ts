@@ -24,7 +24,6 @@ export class ApiDataService {
 
   searchText(request: DiagnoseData) {
     this.http.post(`${this.URL}/classify/text`, request).subscribe(response => {
-      console.log(response)
       this.saveApiResponse(response);
     });
   }
@@ -44,7 +43,6 @@ export class ApiDataService {
   }
 
   updateTogglerState(state) {
-    console.log('toggler state service', state)
     this.toggler.next(state);
   }
 
@@ -54,7 +52,6 @@ export class ApiDataService {
   };
 
   dataRequestForRefresh(data) {
-    console.log('data', data)
     this.data.next(data);
   }
 
@@ -64,7 +61,6 @@ export class ApiDataService {
   }
 
   saveApiResponse(response) {
-    console.log('response', response)
     this.response.next(response);
   }
 

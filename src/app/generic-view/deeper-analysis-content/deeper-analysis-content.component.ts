@@ -22,7 +22,6 @@ export class DeeperAnalysisContentComponent implements OnInit {
 
   onChangeAnalysisToggle() {
     this.apiDataService.getTogglerState().subscribe((state: boolean) => {
-      console.log('get state in component subject', state)
       this.isShowContent = state;
     })
   }
@@ -30,7 +29,6 @@ export class DeeperAnalysisContentComponent implements OnInit {
   getTopics() {
     this.apiDataService.getTopics().subscribe((topics) => {
       this.topics = topics;
-      console.log(topics);
     });
   }
 }

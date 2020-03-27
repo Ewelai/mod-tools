@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ApiDataService } from '../../shared-components/api-data/api-data.service';
 
 @Component({
@@ -23,7 +23,6 @@ export class RefreshButtonComponent implements OnInit {
 
   refreshData() {
     if(this.data) {
-      console.log('refresh', this.data)
       this.apiDataService.searchText(this.data);
     }
   }
