@@ -4,7 +4,7 @@ import { faSearch, faTimes, faEllipsisH } from '@fortawesome/free-solid-svg-icon
 import { DiagnoseData } from '../../shared-components/interfaces';
 import {
   DefaultLanguage,
-  DefaultClient,
+  DefaultClientId,
   DefaultContentType,
   DefaultSearchText
 } from 'src/constants'
@@ -19,9 +19,12 @@ export class SearchComponent implements OnInit {
   faTimes = faTimes;
   faEllipsisH = faEllipsisH;
   closeSearch = 1;
-  clientId: number;
-  language: string;
-  contentType: string;
+  dataValues: DiagnoseData = {
+    clientId: DefaultClientId,
+    language: DefaultLanguage,
+    contentType: DefaultContentType,
+    text: DefaultSearchText
+  }
   text: string;
 
   constructor(private apiDataService: ApiDataService){}
@@ -32,34 +35,29 @@ export class SearchComponent implements OnInit {
     this.contentTypeSubscribtion();
   }
 
-  clientIdSubscribtion() {
+  clientIdSubscribtion(): void {
     this.apiDataService.getClientId().subscribe(clientId => {
-      if (clientId) { this.clientId = clientId; }
+      if (clientId) { this.dataValues.clientId = clientId; }
     });
   };
 
-  languageSubscribtion() {
+  languageSubscribtion(): void {
     this.apiDataService.getLanguage().subscribe(language => {
-      if (language) { this.language = language; }
+      if (language) { this.dataValues.language = language; }
     });
   };
 
-  contentTypeSubscribtion() {
+  contentTypeSubscribtion(): void {
     this.apiDataService.getContentType().subscribe(contentType => {
-      if (contentType) { this.contentType = contentType; }
+      if (contentType) { this.dataValues.contentType = contentType; }
     });
   };
 
-  inputSearchData(text) {
-    const data: DiagnoseData = {
-      clientId: this.clientId ? this.clientId : DefaultClient,
-      language: this.language ? this.language : DefaultLanguage,
-      text: text ? text : DefaultSearchText,
-      contentType: this.contentType ? this.contentType : DefaultContentType
-    }
+  inputSearchData(text): void {
+    this.dataValues.text = text;
 
-    this.apiDataService.searchText(data);
-    this.apiDataService.dataRequestForRefresh(data);
+    this.apiDataService.searchText(this.dataValues);
+    this.apiDataService.dataRequestForRefresh(this.dataValues);
   }
 
 }

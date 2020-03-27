@@ -11,12 +11,12 @@
     </div>
     <div class="policy">
         <div class="text">Policy Guides</div>
-        <div class="topic-box d-flex align-center p-2" [ngClass]="(response.topics[5] >= 5 || response.topics[0] >= 6) ? 'red' : 'green' ">
-            <img class="img-width" [src]="response.topics[0] >= 6 || response.topics[5] >= 5 ? './assets/images/dislike.svg' : './assets/images/like.svg'"/>
+        <div class="topic-box d-flex align-center p-2" [ngClass]="globalChatPolicy()">
+            <img class="img-width" [src]="globalChatPolicyImage()"/>
             <div class="topic-box-text">Gobal Chat</div>
         </div>
-        <div class="topic-box d-flex align-center p-2" [ngClass]="response.topics[5] >= 6 ? 'red': 'green'">
-            <img class="img-width" [src]="response.topics[5] >= 6 ? './assets/image/dislike.svg' : './assets/images/like.svg'"/>
+        <div class="topic-box d-flex align-center p-2" [ngClass]="privateChatPolicy()">
+            <img class="img-width" [src]="privateChatPolicyImage()"/>
             <div class="topic-box-text">Private Chat</div>
         </div>
     </div>

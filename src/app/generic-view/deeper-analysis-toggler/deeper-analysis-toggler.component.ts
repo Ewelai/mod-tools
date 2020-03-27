@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter, Input, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ApiDataService } from 'src/app/shared-components/api-data/api-data.service';
 
 @Component({
@@ -14,7 +14,7 @@ export class DeeperAnalysisTogglerComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  toggle() {
+  toggle(): void {
     this.isChecked = !this.isChecked;
     this.apiDataSevice.updateTogglerState(this.isChecked);
   }

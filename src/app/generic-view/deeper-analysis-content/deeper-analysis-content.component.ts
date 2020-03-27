@@ -7,6 +7,7 @@ import { Topics } from 'src/constants';
   templateUrl: './deeper-analysis-content.component.html',
   styleUrls: ['./deeper-analysis-content.component.less']
 })
+
 export class DeeperAnalysisContentComponent implements OnInit {
   isShowContent = false;
   topics: string[];
@@ -20,15 +21,21 @@ export class DeeperAnalysisContentComponent implements OnInit {
     this.getTopics();
   }
 
-  onChangeAnalysisToggle() {
+  onChangeAnalysisToggle(): void {
     this.apiDataService.getTogglerState().subscribe((state: boolean) => {
       this.isShowContent = state;
     })
   }
 
-  getTopics() {
-    this.apiDataService.getTopics().subscribe((topics) => {
+  getTopics(): void {
+    this.apiDataService.getTopics().subscribe(topics => {
       this.topics = topics;
     });
+  }
+
+  checkCondition(item: any, condition: string): boolean {
+    if(item.tokens.length > 0 && item.tokens[item.tokens.length - 1].text === condition) {
+      return true;
+    }
   }
 }

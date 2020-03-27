@@ -1,11 +1,9 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { sortBy } from 'lodash';
-
 import { faLanguage } from '@fortawesome/free-solid-svg-icons';
 
 import { Languages } from 'src/constants';
 import { UserService } from 'src/app/shared-components/user.service';
-
 import { ApiDataService } from '../../shared-components/api-data/api-data.service';
 
 @Component({
@@ -44,7 +42,7 @@ export class LanguagePickerComponent implements OnInit {
   /**
    * Fired when the user changes their language
    */
-  onLanguageChanged (selectedLanguage: string) {
+  onLanguageChanged (selectedLanguage: string): void {
     this.languageChanged.emit(this.selectedLanguage);
     this.apiDataService.updateLanguage(selectedLanguage);
   }

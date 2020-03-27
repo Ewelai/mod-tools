@@ -81,7 +81,7 @@ export const Clients: Client[] = [
 ]
 
 // Set the default client
-export const DefaultClient = 0;
+export const DefaultClientId = 0;
 
 // Set the default language to English
 export const DefaultLanguage = 'en';

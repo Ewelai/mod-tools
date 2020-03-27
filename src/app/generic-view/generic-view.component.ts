@@ -25,32 +25,40 @@ export class GenericViewComponent implements OnInit {
     this.getData();
   }
 
-  onUserChangedClient (newClient:number) {
+  /*
+  *  This code below smells  bad.
+  *  ```const prefs = this.userService.preferences;
+  *  prefs.lastClientId = newClient;
+  *  this.userService.preferences = prefs;```
+  *
+  * In user service we have getter and setter to set value through setter or get it from into the service.
+  * Setter have checks about prefs, else set and get default values.
+  *
+  */
+
+  onUserChangedClient (newClientId:number): void {
+    // TODO #codereview This smells bad.
+    // Oughtn't I be able to write this as this.UserService.preferences.language = newClient?
+    this.userService.preferences.lastClientId = newClientId;
+  }
+
+  onUserChangedLanguage (newLanguage:string): void {
     // TODO #codereview This smells bad.
     // Oughtn't I be able to write this as this.UserService.preferences.language = newLanguage?
-    const prefs = this.userService.preferences;
-    prefs.lastClientId = newClient;
-    this.userService.preferences = prefs;
+    this.userService.preferences.language = newLanguage;
   }
 
-  onUserChangedLanguage (newLanguage:string) {
+  onUserChangedContentType (newContentType: string): void {
     // TODO #codereview This smells bad.
-    // Oughtn't I be able to write this as this.UserService.preferences.language = newLanguage?
-    const prefs = this.userService.preferences;
-    prefs.language = newLanguage;
-    this.userService.preferences = prefs;
+    // Oughtn't I be able to write this as this.UserService.preferences.contentType = newContentType?
+    this.userService.preferences.contentType = newContentType;
   }
 
-  onUserChangedContentType (newContentType: string) {
-    const prefs = this.userService.preferences;
-    prefs.contentType = newContentType;
-    this.userService.preferences = prefs;
-  }
-
-  getData() {
+  getData(): void {
     this.apiDataService.getApiResponse().subscribe(data => {
       if(data !== null){
         this.response = data;
+        console.log(this.response,'ejfregjn');
       }
     })
   }
