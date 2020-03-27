@@ -22,7 +22,7 @@ You can type in a phrase in the search bar at the top of the screen and send it 
 
 After receiving a response from the API, the text is diagnosed in the presence of obscene. The first line of the keyword is marked in gray, because it is the original string obtained from the search field. The second line of the phrase displays the result of text diagnostics for the presence of obscene and grouped words. On the right, there is a sidebar that displays the topics and the number of topics used in a phrase. Also, whether or not this list of topics will pass in the policy guide. The AI Prediction is calculated below. Above the sidebar there is a toggle for viewing deep text analysis. Analysis consists of spelling errors, what caused which tag will be on obscene words.
 
-## Helpful recommendations
+## Helpful recommendations (Bonus Point)
 
 1. There are many components in the code that are connected with each other. This connection is implemented with the help of EventEmmiter and Input Output directives, which generates extra code. It makes sense when we have a simple application and it doesn't make sense to organize a simultaneous connection between many components. I suggest to use Observable in services to be able to subscribe to changes from the service to the component, so we can get the value from anywhere in the application. The second option is to use the Flux architecture (implementation in Angular - ngrx). In React.js library this implementation is a Redux library. Both variants allow us to monitor and react to all changes in dependent components in a continuous mode.
 
