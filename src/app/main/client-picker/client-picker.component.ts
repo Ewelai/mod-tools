@@ -19,7 +19,7 @@ export class ClientPickerComponent implements OnInit {
 
   ngOnInit() : void { }
 
-  onClientChanged (selectedClient: number) {
+  onClientChanged (selectedClient: number): void {
     this.clientChanged.emit(this.selectedClient);
     this.apiDataService.updateClientId(selectedClient);
   }

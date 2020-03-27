@@ -7,36 +7,53 @@ import { ApiDataService } from 'src/app/shared-components/api-data/api-data.serv
   styleUrls: ['./diagnose-text-view.component.less']
 })
 export class DiagnoseTextViewComponent implements OnInit {
-  isShow: any;
-  mouseValue: any;
   @Input() response;
-  test: string;
+  isShow: boolean;
+  mouseValue: string;
+  conditions = {
+    bully: '{{strong_bully_word}}',
+    love: '{{stem:love}}',
+    food: '{{breakfast_food}}'
+  }
 
   constructor(public apiDataService: ApiDataService) { }
 
   ngOnInit(): void {
   }
 
-  mouseEnter(index, item) {
-    if(item.solution === '{{breakfast_food}}') {
+  mouseEnter(index, item): void {
+    if(item.solution === this.conditions.food) {
       this.mouseValue = index;
     }
   }
 
-  mouseLeave(item) {
-    if(item.solution === '{{breakfast_food}}') {
+  mouseLeave(item): void {
+    if(item.solution === this.conditions.food) {
       this.mouseValue = '';
     }
   }
 
-  checkRightSolution(condition) {
-    if((condition !== '{{strong_bully_word}}') && (condition !== '{{stem:love}}') && (condition !== '{{breakfast_food}}')) {
+  checkBullyCondition(item: any): boolean {
+    const tokensText = item.tokens[item.tokens.length - 1].text;
+    if(tokensText === this.conditions.bully) {
       return true;
     }
   }
 
-  checkNeutralSolutions(condition) {
-    if((condition === '{{stem:love}}') || (condition === '{{breakfast_food}}')) {
+  checkRightCondition(item: any): boolean {
+    const tokensText = item.tokens[item.tokens.length - 1].text;
+    if(
+        (tokensText !== this.conditions.bully) &&
+        (tokensText !== this.conditions.love) &&
+        (tokensText !== this.conditions.food)
+      ) {
+      return true;
+    }
+  }
+
+  checkNeutralCondition(item: any): boolean {
+    const tokensText = item.tokens[item.tokens.length - 1].text;
+    if((tokensText === this.conditions.love) || (tokensText === this.conditions.food)) {
       return true;
     }
   }

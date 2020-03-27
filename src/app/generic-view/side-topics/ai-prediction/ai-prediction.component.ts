@@ -7,7 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class AiPredictionComponent implements OnInit {
 
-  @Input() response: any;
+  @Input() response;
 
   constructor() { }
 

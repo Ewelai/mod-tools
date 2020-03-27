@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import * as Sentry from '@sentry/browser';
 
 import { User, UserPreferences } from './user';
-import { DefaultLanguage, DefaultClient, DefaultContentType } from 'src/constants';
+import { DefaultLanguage, DefaultClientId, DefaultContentType } from 'src/constants';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +12,7 @@ export class UserService {
 
   defaultPrefs:UserPreferences = {
     language: DefaultLanguage,
-    lastClientId: DefaultClient,
+    lastClientId: DefaultClientId,
     contentType: DefaultContentType
   };
 

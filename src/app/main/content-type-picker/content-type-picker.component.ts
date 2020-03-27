@@ -17,7 +17,7 @@ export class ContentTypePickerComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onContentTypeChanged (selectedContentType: string) {
+  onContentTypeChanged (selectedContentType: string): void {
     this.contentTypeChanged.emit(this.selectedContentType);
     this.apiDataService.updateContentType(selectedContentType)
   }

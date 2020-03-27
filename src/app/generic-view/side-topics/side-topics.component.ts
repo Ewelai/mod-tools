@@ -8,7 +8,7 @@ import { ApiDataService } from 'src/app/shared-components/api-data/api-data.serv
 })
 export class SideTopicsComponent implements OnInit {
   response: any;
-  topicsResponse;
+  topicsResponse: any;
 
   constructor(public apiDataService: ApiDataService) { }
 
@@ -16,7 +16,7 @@ export class SideTopicsComponent implements OnInit {
     this.getData();
   }
 
-  getData() {
+  getData(): void {
     this.apiDataService.getApiResponse().subscribe(data => {
       this.response = data;
       if(data !== null){
@@ -26,7 +26,7 @@ export class SideTopicsComponent implements OnInit {
     })
   }
 
-  formatTopics(topics) {
+  formatTopics(topics): void {
     this.topicsResponse = Object.keys(topics);
     this.apiDataService.updateTopics(this.topicsResponse)
   }
